@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BE38D6FD-6D80-4949-A808-0BFD465B2C68}</ProjectGuid>
+    <RootNamespace>TestMe</RootNamespace>
+    <ProjectName>TAMCOS</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino;C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\variants\standard;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>C:\Users\Tyrel\Documents\Arduino\TestMe\Visual Micro\.TestMe.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <PreprocessorDefinitions>_VMDEBUG=1;ARDUINO=103;__AVR_ATmega328P__;F_CPU=16000000L;__AVR__;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino;C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\variants\standard;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>C:\Users\Tyrel\Documents\Arduino\TestMe\Visual Micro\.TestMe.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>ARDUINO=103;__AVR_ATmega328P__;F_CPU=16000000L;__AVR__;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="TAMCOS.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Arduino.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\binary.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Client.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\HardwareSerial.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\IPAddress.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\new.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Platform.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Print.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Printable.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Server.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Stream.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Udp.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\USBAPI.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\USBCore.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\USBDesc.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WCharacter.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_private.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WString.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\variants\standard\pins_arduino.h" />
+    <ClInclude Include="Kernel.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="Scheduler.h" />
+    <ClInclude Include="Thread.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="Visual Micro\.TestMe.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\CDC.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\HardwareSerial.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\HID.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\IPAddress.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\main.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\new.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Print.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Stream.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\Tone.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\USBCore.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WInterrupts.c" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring.c" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_analog.c" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_digital.c" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_pulse.c" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_shift.c" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WMath.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WString.cpp" />
+    <ClCompile Include="Kernel.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="timer.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties arduino.upload.port="COM3" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
