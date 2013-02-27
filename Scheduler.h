@@ -34,6 +34,9 @@
 
 #include "List.h"
 
+namespace TAMCOS
+{
+
 class Thread;
 
 class Scheduler : public TimerInterruptHandler
@@ -52,6 +55,8 @@ class Scheduler : public TimerInterruptHandler
 	 void addThread(Thread* thread);
 	 void enable();
 };
+
+} // end namespace
 
 #endif
 

@@ -26,6 +26,9 @@
 #include "Thread.h"
 #include "Logger.h"
 
+namespace TAMCOS
+{
+
 Scheduler* Scheduler::instance = NULL;
 
 Scheduler::Scheduler()
@@ -47,9 +50,7 @@ void* Scheduler::HandleTimerInterrupt(void* stackPointer)
 		if (thread != NULL)
 		{
 			// TODO: more than just one thread
-			char msg[100];
-			sprintf(msg, "Running thread %s", thread->value()->getName());
-			Logger::Log(msg);
+			Logger::Log("Running thread %s", thread->value()->getName());
 			return thread->value()->getStackPointer();
 		}
 		else
@@ -59,6 +60,7 @@ void* Scheduler::HandleTimerInterrupt(void* stackPointer)
 	}
 	else
 	{
+		Logger::Log("Scheduler not enabled");
 		return stackPointer;
 	}
 }
@@ -79,3 +81,5 @@ void Scheduler::addThread(Thread* thread)
 	// TODO: make this threadsafe
 	threads.add(thread);
 }
+
+} // end namespace

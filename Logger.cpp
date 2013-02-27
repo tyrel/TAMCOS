@@ -23,13 +23,17 @@
 
 #include "Logger.h"
 
-Logger* Logger::instance = new Logger();
+namespace TAMCOS
+{
+
+Logger* Logger::instance = NULL;
 
 Logger::Logger()
 	: lock(true)
 {
 	instance = this;
 	Serial.begin(9600);
+	Serial.println("Debug logging has started");
 
 	lock = false;
 }
@@ -54,15 +58,22 @@ void Logger::Flush()
 	instance->lock = false;
 }
 
-void Logger::Log(const char* message)
+void Logger::Log(const char* format, ...)
 {
 	if (instance == NULL) return;
+
+	char buffer[512] = {0};
+	va_list args;
+	va_start(args, format);
+	vsnprintf(buffer, 512, format, args);
 
 	// TODO: lock better
 	while (instance->lock) ;
 	instance->lock = true;
 
-	instance->messages.add(strdup(message));
+	instance->messages.add(strdup(buffer));
 
 	instance->lock = false;
 }
+
+} // end namespace

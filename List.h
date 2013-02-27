@@ -24,6 +24,9 @@
 #ifndef _LIST_h
 #define _LIST_h
 
+namespace TAMCOS
+{
+
 template <class T>
 class ListNode
 {
@@ -94,6 +97,8 @@ public:
 		}
 	}
 };
+
+} // end namespace
 
 #endif
 

@@ -30,13 +30,21 @@
 	#include "WProgram.h"
 #endif
 
+namespace TAMCOS
+{
+
+class Logger;
+
 class Kernel
 {
- private:
+private:
+	Logger& logger;
 
- public:
-	Kernel();
+public:
+	Kernel(Logger& logger);
 };
+
+} // end namespace
 
 #endif
 

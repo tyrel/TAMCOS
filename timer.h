@@ -30,6 +30,9 @@
 	#include "WProgram.h"
 #endif
 
+namespace TAMCOS
+{
+
 class TimerInterruptHandler
 {
 public:
@@ -39,7 +42,7 @@ public:
 class Timer
 {
  private:
-	volatile unsigned long ticks;
+	volatile uint64_t ticks;
 	Timer();
 	static Timer* instance;
 	TimerInterruptHandler* handler;
@@ -48,8 +51,10 @@ class Timer
 	static Timer& getInstance();
 	void* interrupt(void* stackPointer);
 	void setInterruptHandler(TimerInterruptHandler* handler);
-	unsigned long getTickCount() const;
+	uint64_t getTickCount() const;
 };
+
+} // end namespace
 
 #endif
 

@@ -32,6 +32,9 @@
 
 #include "List.h"
 
+namespace TAMCOS
+{
+
 class Logger
 {
  private:
@@ -44,9 +47,10 @@ class Logger
 
 	 static void Flush();
 
-	 static void Log(const char* message);
+	 static void Log(const char* format, ...);
 };
 
+} // end namespace
 
 #endif
 

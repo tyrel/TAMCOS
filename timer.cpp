@@ -23,25 +23,29 @@
 
 #include "Timer.h"
 
+#include "Logger.h"
+
+namespace TAMCOS
+{
+
 Timer* Timer::instance = NULL;
 
 Timer::Timer()
+	: ticks(0), handler(NULL)
 {
-	ticks = 0;
-
-	handler = NULL;
-
+	// turn off interrupts while we configure the timer
 	cli();
 
-	// set timer0 interrupt to 2 kHz
-	TCCR0A = 0;
-	TCCR0B = 0;
-	TCNT0 = 0;
-	OCR0A = 124;
-	TCCR0A |= (1 << WGM01);
-	TCCR0B |= (1 << CS11) | (1 << CS10);
-	TIMSK0 |= (1 << OCIE0A);
+	// set timer1 interrupt to 10 Hz
+	TCCR1A = 0;
+	TCCR1B = 0;
+	TCNT1 = 0;
+	OCR1A = 1562; // this is how high it will count. when it reaches, it'll trigger
+	TCCR1B |= (1 << WGM12);
+	TCCR1B |= (1 << CS12) | (1 << CS10);
+	TIMSK1 = (1 << OCIE1A);
 
+	// re-enable interrupts
 	sei();
 }
 
@@ -64,6 +68,8 @@ void Timer::setInterruptHandler(TimerInterruptHandler* handler)
 void* Timer::interrupt(void* stackPointer)
 {
 	ticks++;
+	Logger::Log("Tick %d", ticks);
+	Logger::Flush();
 	if (handler != NULL)
 	{
 		return handler->HandleTimerInterrupt(stackPointer);
@@ -74,12 +80,12 @@ void* Timer::interrupt(void* stackPointer)
 	}
 }
 
-unsigned long Timer::getTickCount() const
+uint64_t Timer::getTickCount() const
 {
 	return ticks;
 }
 
-ISR(TIMER0_COMPA_vect) {
+ISR(TIMER1_COMPA_vect) {
 	// We want to store off the registers that the vector itself does not.
 	asm volatile (
 		"push r2"		"\n\t"
@@ -105,6 +111,8 @@ ISR(TIMER0_COMPA_vect) {
 
 	stackptr = (uint8_t*)Timer::getInstance().interrupt(stackptr);
 
+	SP = (uint16_t)stackptr;
+
 	asm volatile (
 		"pop r29"		"\n\t"
 		"pop r28"		"\n\t"
@@ -124,3 +132,5 @@ ISR(TIMER0_COMPA_vect) {
 		"pop r2"		"\n\t"
 		:/*outputs*/:/*inputs*/:/*clobber*/);
 }
+
+} // end namespace

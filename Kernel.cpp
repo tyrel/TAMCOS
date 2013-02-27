@@ -26,6 +26,9 @@
 #include "Thread.h"
 #include "Logger.h"
 
+namespace TAMCOS
+{
+
 class Blinky : public Thread
 {
 public:
@@ -42,11 +45,9 @@ protected:
 		unsigned long last = 0;
 		while (1)
 		{
-			Logger::Flush();
-
 			unsigned long current = Timer::getInstance().getTickCount();
 
-			if (last != current && current % 1000 == 0)
+			if (last != current && current % 10 == 0)
 			{
 				if (on)
 				{
@@ -63,7 +64,8 @@ protected:
 	}
 };
 
-Kernel::Kernel()
+Kernel::Kernel(Logger& logger)
+	: logger(logger)
 {
 	Scheduler& scheduler = Scheduler::getInstance();
 
@@ -73,10 +75,12 @@ Kernel::Kernel()
 
 	Logger::Flush();
 
-	//scheduler.enable();
+	scheduler.enable();
 
 	while (true)
 	{
 		Logger::Flush();
 	}
 }
+
+} // end namespace

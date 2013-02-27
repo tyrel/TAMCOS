@@ -30,6 +30,9 @@
 	#include "WProgram.h"
 #endif
 
+namespace TAMCOS
+{
+
 class Registers
 {
 public:
@@ -88,6 +91,8 @@ public:
 
 	 const char* getName() const;
 };
+
+}
 
 #endif
 

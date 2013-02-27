@@ -30,10 +30,13 @@
 
 void setup()
 {
-	Timer::getInstance(); // cause new timer to be created
+	TAMCOS::Timer::getInstance(); // cause new timer to be created
 }
 
 void loop()
 {
-	Kernel kernel;
+	TAMCOS::Logger logger;
+	TAMCOS::Kernel kernel(logger);
+
+	while(1); // we don't ever want to return
 }
