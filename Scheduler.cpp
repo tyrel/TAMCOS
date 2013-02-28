@@ -50,7 +50,6 @@ void* Scheduler::HandleTimerInterrupt(void* stackPointer)
 		if (thread != NULL)
 		{
 			// TODO: more than just one thread
-			Logger::Log("Running thread %s", thread->value()->getName());
 			return thread->value()->getStackPointer();
 		}
 		else
@@ -60,7 +59,6 @@ void* Scheduler::HandleTimerInterrupt(void* stackPointer)
 	}
 	else
 	{
-		Logger::Log("Scheduler not enabled");
 		return stackPointer;
 	}
 }

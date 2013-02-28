@@ -47,6 +47,9 @@ Timer::Timer()
 
 	// re-enable interrupts
 	sei();
+
+	// FOR DEBUGGING
+	pinMode(11, OUTPUT);
 }
 
 Timer& Timer::getInstance()
@@ -67,9 +70,12 @@ void Timer::setInterruptHandler(TimerInterruptHandler* handler)
 
 void* Timer::interrupt(void* stackPointer)
 {
+	static bool debugPin = false;
+	debugPin = !debugPin;
+	digitalWrite(11, debugPin ? HIGH : LOW);
+
 	ticks++;
-	Logger::Log("Tick %d", ticks);
-	Logger::Flush();
+
 	if (handler != NULL)
 	{
 		return handler->HandleTimerInterrupt(stackPointer);
@@ -107,11 +113,11 @@ ISR(TIMER1_COMPA_vect) {
 		:/*outputs*/:/*inputs*/:/*clobber*/);
 
 	// now the current stack is what we'd want to save as a thread's stack
-	uint8_t* stackptr = *(uint8_t**)(SP);
+	volatile uint16_t stackptr = *(uint16_t*)(SP);
 
-	stackptr = (uint8_t*)Timer::getInstance().interrupt(stackptr);
+	stackptr = (uint16_t)Timer::getInstance().interrupt((void*)stackptr);
 
-	SP = (uint16_t)stackptr;
+	SP = stackptr;
 
 	asm volatile (
 		"pop r29"		"\n\t"

@@ -75,7 +75,7 @@ Kernel::Kernel(Logger& logger)
 
 	Logger::Flush();
 
-	scheduler.enable();
+	//scheduler.enable();
 
 	while (true)
 	{
