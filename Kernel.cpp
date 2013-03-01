@@ -22,6 +22,7 @@
  */
 
 #include "Kernel.h"
+#include "DebugLCD.h"
 #include "Scheduler.h"
 #include "Thread.h"
 #include "Logger.h"
@@ -67,19 +68,28 @@ protected:
 Kernel::Kernel(Logger& logger)
 	: logger(logger)
 {
+	debug.setMessage("Kernel starting.");
+
 	Scheduler& scheduler = Scheduler::getInstance();
+
+	debug.makeProgress();
 
 	Blinky blinky;
 
-	Logger::Log("Starting the scheduler");
+	debug.makeProgress();
 
-	Logger::Flush();
 
 	//scheduler.enable();
 
+	uint32_t i = 0;
+
 	while (true)
 	{
-		Logger::Flush();
+		i++;
+		//if (i % 1000 == 0)
+		//{
+		//	debug.setMessage("Running! %ld", i / 1000);
+		//}
 	}
 }
 

@@ -19,6 +19,9 @@
     <Filter Include="_libraries">
       <UniqueIdentifier>{7398c3a8-ffa9-4060-9a20-a99653176422}</UniqueIdentifier>
     </Filter>
+    <Filter Include="_libraries\LiquidCrystal">
+      <UniqueIdentifier>{d433c51e-35a9-41c9-b813-026551339478}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="TAMCOS.ino" />
@@ -105,6 +108,12 @@
     <ClInclude Include="Visual Micro\.TAMCOS.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DebugLCD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\libraries\LiquidCrystal\LiquidCrystal.h">
+      <Filter>_libraries\LiquidCrystal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\CDC.cpp">
@@ -175,6 +184,12 @@
     </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLCD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\libraries\LiquidCrystal\LiquidCrystal.cpp">
+      <Filter>_libraries\LiquidCrystal</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

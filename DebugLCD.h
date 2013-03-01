@@ -21,24 +21,33 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+#ifndef _DEBUGLCD_h
+#define _DEBUGLCD_h
+
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "Arduino.h"
+#else
+	#include "WProgram.h"
+#endif
+
 #include <LiquidCrystal.h>
-#include "DebugLCD.h"
-#include "Logger.h"
-#include "List.h"
-#include "Thread.h"
-#include "Kernel.h"
-#include "Scheduler.h"
-#include "timer.h"
 
-void setup()
+class DebugLCD
 {
-	TAMCOS::Timer::getInstance(); // cause new timer to be created
-}
+ private:
+	 LiquidCrystal lcd;
+	 int progress;
+	 char message[17];
 
-void loop()
-{
-	TAMCOS::Logger logger;
-	TAMCOS::Kernel kernel(logger);
+	 void refresh();
 
-	while(1); // we don't ever want to return
-}
+ public:
+	 DebugLCD();
+	 void setMessage(const char* format, ...);
+	 void makeProgress();
+};
+
+extern DebugLCD debug;
+
+#endif
+

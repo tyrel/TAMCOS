@@ -33,7 +33,7 @@ Logger::Logger()
 {
 	instance = this;
 	Serial.begin(9600);
-	Serial.println("Debug logging has started");
+	//Serial.println("Debug logging has started");
 
 	lock = false;
 }
@@ -41,6 +41,8 @@ Logger::Logger()
 void Logger::Flush()
 {
 	if (instance == NULL) return;
+
+	return;
 
 	// TODO: lock better
 	while (instance->lock) ;
@@ -61,6 +63,8 @@ void Logger::Flush()
 void Logger::Log(const char* format, ...)
 {
 	if (instance == NULL) return;
+
+	return;
 
 	char buffer[512] = {0};
 	va_list args;

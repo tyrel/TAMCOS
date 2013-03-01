@@ -25,6 +25,8 @@
 
 #include "Logger.h"
 
+#include "DebugLCD.h"
+
 namespace TAMCOS
 {
 
@@ -115,9 +117,15 @@ ISR(TIMER1_COMPA_vect) {
 	// now the current stack is what we'd want to save as a thread's stack
 	volatile uint16_t stackptr = *(uint16_t*)(SP);
 
+	uint16_t was = stackptr;
+
 	stackptr = (uint16_t)Timer::getInstance().interrupt((void*)stackptr);
 
-	SP = stackptr;
+	debug.setMessage("%u now %u", was, stackptr);
+
+	while (1) ;
+
+	//SP = stackptr;
 
 	asm volatile (
 		"pop r29"		"\n\t"

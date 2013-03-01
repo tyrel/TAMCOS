@@ -21,24 +21,56 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-#include <LiquidCrystal.h>
 #include "DebugLCD.h"
-#include "Logger.h"
-#include "List.h"
-#include "Thread.h"
-#include "Kernel.h"
-#include "Scheduler.h"
-#include "timer.h"
 
-void setup()
+DebugLCD::DebugLCD()
+	: lcd(12, 11, 10, 5, 4, 3, 2)
+	, progress(0)
 {
-	TAMCOS::Timer::getInstance(); // cause new timer to be created
+	lcd.begin(16, 2);
+	lcd.clear();
+
+	memset(message, ' ', sizeof(message));
 }
 
-void loop()
+void DebugLCD::refresh()
 {
-	TAMCOS::Logger logger;
-	TAMCOS::Kernel kernel(logger);
+	lcd.clear();
+	lcd.setCursor(0, 0);
+	int i = 0;
+	for (; i < progress; i++)
+	{
+		lcd.print("X");
+	}
+	for (; i < 16; i++)
+	{
+		lcd.print(" ");
+	}
 
-	while(1); // we don't ever want to return
+	lcd.setCursor(0, 1);
+	lcd.print(message);
 }
+
+void DebugLCD::setMessage(const char* format, ...)
+{
+	memset(message, ' ', sizeof(message));
+
+	va_list args;
+	va_start(args, format);
+	vsnprintf(message, sizeof(message), format, args);
+
+	refresh();
+}
+
+void DebugLCD::makeProgress()
+{
+	progress++;
+	if (progress > 16)
+	{
+		progress = 0;
+	}
+
+	refresh();
+}
+
+DebugLCD debug;

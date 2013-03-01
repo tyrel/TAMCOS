@@ -44,7 +44,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino;C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\variants\standard;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino;C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\variants\standard;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;C:\Users\Tyrel\Desktop\arduino-1.0.3\libraries\LiquidCrystal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\Tyrel\Documents\Arduino\TAMCOS\Visual Micro\.TAMCOS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>_VMDEBUG=1;ARDUINO=103;__AVR_ATmega328P__;F_CPU=16000000L;__AVR__;__cplusplus;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -59,7 +59,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino;C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\variants\standard;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino;C:\Users\Tyrel\Desktop\arduino-1.0.3\hardware\arduino\variants\standard;C:\Users\Tyrel\Desktop\arduino-1.0.3\libraries\LiquidCrystal;C:\Users\Tyrel\Desktop\arduino-1.0.3\libraries\LiquidCrystal\utility;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\include\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\avr\;c:\users\tyrel\desktop\arduino-1.0.3\hardware\tools\avr\lib\gcc\avr\4.3.2\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\Tyrel\Documents\Arduino\TAMCOS\Visual Micro\.TAMCOS.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
       <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -96,6 +96,8 @@
     <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_private.h" />
     <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WString.h" />
     <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\variants\standard\pins_arduino.h" />
+    <ClInclude Include="..\..\..\Desktop\arduino-1.0.3\libraries\LiquidCrystal\LiquidCrystal.h" />
+    <ClInclude Include="DebugLCD.h" />
     <ClInclude Include="Kernel.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Logger.h" />
@@ -124,6 +126,8 @@
     <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\wiring_shift.c" />
     <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WMath.cpp" />
     <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\hardware\arduino\cores\arduino\WString.cpp" />
+    <ClCompile Include="..\..\..\Desktop\arduino-1.0.3\libraries\LiquidCrystal\LiquidCrystal.cpp" />
+    <ClCompile Include="DebugLCD.cpp" />
     <ClCompile Include="Kernel.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Scheduler.cpp" />
@@ -135,7 +139,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties arduino.upload.port="COM3" />
+      <UserProperties arduino.upload.port="COM4" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
